@@ -1,6 +1,6 @@
 
 export const SevenDays = () => {
   return (
-    <p>SevenDays</p>
+    <p id="sieteDias">SevenDays</p>
   )
 }

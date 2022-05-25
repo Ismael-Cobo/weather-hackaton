@@ -1,6 +1,6 @@
 
 export const Today = () => {
   return (
-    <p>Today</p>
+    <p id="hoy">Today</p>
   )
 }
