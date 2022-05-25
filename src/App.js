@@ -1,10 +1,31 @@
+import styled from "@emotion/styled";
+
+import { Navbar } from "./pages/Header/Navbar";
+import { Main } from "./pages/Main/Main";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Wrapper>
+      <HeaderWapper>
+        <Navbar />
+      </HeaderWapper>
+      <MainWrapper>
+        <Main />
+      </MainWrapper>
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.main`
+  display: grid;
+  grid-template-rows:5rem calc(100% - 5rem);
+`
+
+const HeaderWapper = styled.nav`
+  background-color: aqua;
+`
+const MainWrapper = styled.div`
+  background-color: crimson;
+`
