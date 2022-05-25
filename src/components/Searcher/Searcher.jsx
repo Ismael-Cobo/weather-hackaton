@@ -38,6 +38,7 @@ const Input = styled.input`
   font-weight: 400;
   letter-spacing: 0.2ch;
   font-size: 18px;
+  font-family: 'abel', sans-serif;
 `
 
 const Svg = styled.svg`
