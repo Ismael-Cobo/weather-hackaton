@@ -20,7 +20,7 @@ export default App;
 
 const Wrapper = styled.main`
   display: grid;
-  grid-template-rows:5rem calc(100% - 5rem);
+  grid-template-rows:8rem calc(100% - 8rem);
 `
 
 const HeaderWapper = styled.nav`
