@@ -27,6 +27,7 @@ const ContainerScroll = styled.div`
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
   display: flex;
+  scroll-behavior: smooth;
   &::-webkit-scrollbar{
     display: none;
   }
@@ -38,7 +39,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 8rem);
   scroll-snap-align: start;
   &:nth-of-type(1) {
     background-color: blue;
