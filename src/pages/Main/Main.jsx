@@ -1,20 +1,38 @@
 import styled from "@emotion/styled"
+import { useContext } from "react"
+import { WeatherContext } from "../../App"
 import { SevenDays } from "../../components/SevenDays/SevenDays"
 import { Today } from "../../components/Today/Today"
-import { Tomorrow } from "../../components/Tomorrow/Tomorrow"
 
 export const Main = () => {
+
+  const { data, error, loading, dataNow } = useContext(WeatherContext)
+
   return (
     <ContainerScroll>
-      <Section>
-        <Today />
+      <Section id="hoy">
+        {
+          loading
+            ? 'loading'
+            : <Today
+              weather={data.forecast.forecastday[0]}
+              location={data.location.name}
+              feelsLike={dataNow.current.feelslike_c}
+            />
+
+        }
       </Section>
 
-      <Section>
-        <Tomorrow />
+      <Section id="mañana">
+        {
+          loading
+            ? 'loading'
+            : <Today weather={data.forecast.forecastday[1]} location={data.location.name} />
+
+        }
       </Section>
 
-      <Section>
+      <Section id="sieteDias">
         <SevenDays />
       </Section>
     </ContainerScroll>
@@ -28,6 +46,8 @@ const ContainerScroll = styled.div`
   overflow-x: scroll;
   display: flex;
   scroll-behavior: smooth;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   &::-webkit-scrollbar{
     display: none;
   }
@@ -36,17 +56,9 @@ const ContainerScroll = styled.div`
 const Section = styled.section`
   flex: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: calc(100vh - 8rem);
+  height: 100%;
   scroll-snap-align: start;
-  &:nth-of-type(1) {
-    background-color: blue;
-  }
-  &:nth-of-type(2) {
-    background-color: red;
-  }
   &:nth-of-type(3) {
     background-color: green;
   }
