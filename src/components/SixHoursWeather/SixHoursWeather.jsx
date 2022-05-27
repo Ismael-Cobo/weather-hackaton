@@ -1,5 +1,4 @@
-import styled from '@emotion/styled'
-import React from 'react'
+import { IconWrap } from './sixHoursWeatherStyles'
 
 export const SixHoursWeather = ({ icon, time }) => {
 
@@ -12,8 +11,3 @@ export const SixHoursWeather = ({ icon, time }) => {
   )
 }
 
-const IconWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-`

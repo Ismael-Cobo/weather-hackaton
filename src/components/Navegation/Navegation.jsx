@@ -1,6 +1,5 @@
-import styled from '@emotion/styled'
-import React from 'react'
 import { ItemNavegation } from '../ItemNavegation/ItemNavegation'
+import { NavegationWrapper } from './navegationStyles'
 
 export const Navegation = () => {
   return (
@@ -17,10 +16,3 @@ export const Navegation = () => {
     </NavegationWrapper>
   )
 }
-
-const NavegationWrapper = styled.div`
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`
