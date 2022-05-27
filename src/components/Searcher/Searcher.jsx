@@ -21,7 +21,8 @@ export const Searcher = () => {
 }
 
 const InputContainer = styled.form`
-  padding: 1rem 0;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -44,10 +45,10 @@ const Input = styled.input`
 const Svg = styled.svg`
   position: absolute;
   display: block;
-  content: '';
-  left: 9px;
-  bottom: 26.5px;
+  content: ''; 
+  left: 7px;
+  bottom: 16.5px;
   cursor: pointer;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 27px;
 `
