@@ -1,12 +1,22 @@
 import styled from "@emotion/styled"
 import { useContext } from "react"
 import { WeatherContext } from "../../App"
+import { Error } from "../../components/Error/Error"
 import { SevenDays } from "../../components/SevenDays/SevenDays"
 import { Today } from "../../components/Today/Today"
 
 export const Main = () => {
 
-  const { data, error, loading, dataNow } = useContext(WeatherContext)
+  const { data, error, loading, dataNow, errorNow } = useContext(WeatherContext)
+
+
+  if (error || errorNow) {
+    return (
+      <SectionError>
+        <Error />
+      </SectionError>
+    )
+  }
 
   return (
     <ContainerScroll>
@@ -62,4 +72,18 @@ const Section = styled.section`
   &:nth-of-type(3) {
     background-color: green;
   }
+  ${props => {
+    const error = props.error ? 'assets/bg/sunnyLate.jpg' : ''
+    return `background-image:url(${error}) `
+  }
+  }
+`
+
+const SectionError = styled.section`
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('assets/bg/sunnyLate.jpg');
 `
