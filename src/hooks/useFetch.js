@@ -20,24 +20,25 @@ export const useFetch = (url) => {
 
     fetch(url, options)
       .then(resp => resp.json())
-      .then(data => 
+      .then(data => {
+        if(data.error) {
+          return setState({
+            data: data,
+            loading: false,
+            error: data.error
+          })
+        }
         setState({
           data: data,
           loading: false,
           error: null
         })
+      }
       )
-      .catch((e) => {
-        setState({
-          data: null,
-          loading: false,
-          error: e
-        })
-      })
+      .catch(err => console.error(err));
 
   }, [url])
-
-
+  
   return state
 
 }
