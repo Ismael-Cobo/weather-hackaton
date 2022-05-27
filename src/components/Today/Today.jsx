@@ -11,7 +11,6 @@ export const Today = ({ weather, location, feelsLike }) => {
   const { text, icon } = condition
   const iconsFooterNumber = separarFecha(getHourFormated())
 
-
   return (
     <AllWrap avgtemp_c={avgtemp_c}>
 

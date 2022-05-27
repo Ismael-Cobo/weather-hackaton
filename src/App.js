@@ -1,29 +1,63 @@
-import { createContext } from "react";
-import { useFetch } from "./hooks/useFetch";
+import { createContext, useEffect, useReducer } from "react";
 
 import { Navbar } from "./pages/Header/Navbar";
 import { Main } from "./pages/Main/Main";
 import { AppWrapper, Card, HeaderWapper, MainWrapper } from "./appStyles";
+import { weatherReducer } from "./reducer/weatherReducer";
+import { types } from "./types/types";
+import { options } from "./services/options";
 
-export const WeatherContext = createContext({
+const initialState = {
   data: [],
   loading: true,
-  error: null,
-  dataNow: [],
-  errorNow: null
-})
+  error: null
+}
+
+export const WeatherContext = createContext()
 
 
 function App() {
 
-  const {data, error, loading} = useFetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=Barcelona&days=4')
-  
-  const { data: dataNow, error: errorNow } = useFetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Barcelona?lang=es')
-  
+  const [state, dispatch] = useReducer(weatherReducer, initialState)
 
+  const getWeather = async() => {
+    dispatch({type: types.START_LOADING})
 
+    try {
+      const res = await fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=Barcelona&days=4', options)
+      const data = await res.json()
+
+      const resFeelsLike = await fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=Barcelona&days=4', options)
+      const dataFeelsLike = await resFeelsLike.json()
+      
+      const finalData = {data, feelsLike: dataFeelsLike.current.feelslike_c}
+      
+      dispatch({type: types.ADD_QUERY, payload: finalData})
+      dispatch({type: types.DELETE_ERROR})
+      dispatch({type: types.FINISH_LOADING})
+
+    } catch (error) {
+      console.log(error)
+      dispatch({type: types.SET_ERROR})
+      dispatch({type: types.FINISH_LOADING})
+    }
+  
+  }
+
+  useEffect(() => {
+    getWeather()
+  }, [])
+
+  
   return (
-    <WeatherContext.Provider value={{data, error, loading, dataNow, errorNow}}>
+    <WeatherContext.Provider value={
+        {
+          data: state.data, 
+          error: state.error,
+          loading: state.loading
+        }
+      }
+    >
       <AppWrapper>
         <Card>
           <HeaderWapper>
