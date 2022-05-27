@@ -6,11 +6,9 @@ import { Container } from '../../styles/Container'
 
 export const Navbar = () => {
   return (
-    <nav>
-      <Container>
-        <Searcher />
-        <Navegation />
-      </Container>
-    </nav>
+    <Container>
+      <Searcher />
+      <Navegation />
+    </Container>
   )
 }
