@@ -6,13 +6,13 @@ export const Navegation = () => {
   return (
     <NavegationWrapper>
       <ItemNavegation to={'#hoy'}>
-        Hoy
+        Today
       </ItemNavegation>
       <ItemNavegation to={'#mañana'}>
-        Mañana
+        Tomorrow
       </ItemNavegation>
       <ItemNavegation to={'#sieteDias'}>
-        7 dias
+        3 days
       </ItemNavegation>
     </NavegationWrapper>
   )
