@@ -2,13 +2,11 @@
 
 export const weatherDataAdapter = (data) => {
 
-  console.log(data)
-
   const dataAdapted = {
     forecast: [
       ...data.data.forecast.forecastday
     ],
-    feelsLike: data.feelsLike,
+    feelsLike: data.data.current.feelslike_c,
     name: data.data.location.name   
   }
 
