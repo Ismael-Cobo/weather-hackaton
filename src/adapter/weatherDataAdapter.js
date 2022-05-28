@@ -1,8 +1,6 @@
 
 
 export const weatherDataAdapter = (data) => {
-
-  console.log(data.data.location)
   
   const dataAdapted = {
     forecast: [
