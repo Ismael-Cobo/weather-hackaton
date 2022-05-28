@@ -54,7 +54,8 @@ function App() {
         {
           data: state.data, 
           error: state.error,
-          loading: state.loading
+          loading: state.loading,
+          getWeather
         }
       }
     >
