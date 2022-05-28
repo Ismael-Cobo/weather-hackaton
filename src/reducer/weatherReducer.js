@@ -26,10 +26,10 @@ export const weatherReducer = (state, action) => {
     case types.SET_ERROR:
       return {
         ...state,
-        error: payload
+        error: true
       }
 
-    case types.SET_ERROR:
+    case types.DELETE_ERROR:
       return {
         ...state,
         error: null
