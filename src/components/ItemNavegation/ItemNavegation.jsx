@@ -1,7 +1,7 @@
 import { Item } from "./itemNavegationStyles"
 
-export const ItemNavegation = ({ children, active, to }) => {
+export const ItemNavegation = ({ children, active, to, onClick }) => {
   return (
-    <Item href={to}>{children}</Item>
+    <Item onClick={onClick} href={to} active={active}>{children}</Item>
   )
 }
