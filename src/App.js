@@ -6,6 +6,7 @@ import { AppWrapper, Card, HeaderWapper, MainWrapper } from "./appStyles";
 import { weatherReducer } from "./reducer/weatherReducer";
 import { types } from "./types/types";
 import { options } from "./services/options";
+import { weatherDataAdapter } from "./adapter/weatherDataAdapter";
 
 const initialState = {
   data: [],
@@ -31,8 +32,8 @@ function App() {
       const dataFeelsLike = await resFeelsLike.json()
       
       const finalData = {data, feelsLike: dataFeelsLike.current.feelslike_c}
-      
-      dispatch({type: types.ADD_QUERY, payload: finalData})
+    
+      dispatch({type: types.ADD_QUERY, payload: weatherDataAdapter(finalData)})
       dispatch({type: types.DELETE_ERROR})
       dispatch({type: types.FINISH_LOADING})
 
