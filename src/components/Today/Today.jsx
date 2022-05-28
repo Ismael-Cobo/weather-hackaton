@@ -1,10 +1,11 @@
-import { separarFecha } from "../../helpers/changeHours"
-import { formatDate, getDateFormated, getHourFormated, getHourFormatedWithTime } from "../../helpers/formatDate"
 import { SixHoursWeather } from "../SixHoursWeather/SixHoursWeather"
+
 import { AllWrap, DiaNoche, Fecha, Section, Temperatura, TemperaturaSign, TemperaturaWrap, Title, Wrap } from "./todayStyles"
 
-export const Today = ({ weather, location, feelsLike }) => {
+import { formatDate, getDateFormated, getHourFormated, getHourFormatedWithTime } from "../../helpers/formatDate"
+import { separarFecha } from "../../helpers/changeHours"
 
+export const Today = ({ weather, location, feelsLike }) => {
 
   const { date, day, hour } = weather
   const { avgtemp_c, condition } = day
@@ -42,6 +43,7 @@ export const Today = ({ weather, location, feelsLike }) => {
           })
         }
       </Section>
+
     </AllWrap>
   )
 }
