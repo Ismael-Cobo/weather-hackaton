@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
 
-
 export const AllWrap = styled.div`
 display: flex;
 flex-direction: column;
@@ -12,7 +11,7 @@ background-repeat: no-repeat;
 background-size: cover;
 justify-content: space-around;
 ${props => {
-  const image = props.avgtemp_c > 10 ? 'assets/bg/sunny.png' : 'assets/bg/cold3.jpg'
+  const image = props.avgtemp_c < 10 ? 'assets/bg/cold3.jpg' : props.avgtemp_c > 10 && props.avgtemp_c < 25 ? 'assets/bg/sunny.png' : 'assets/bg/warm.jpg'
   return `background-image:url(${image});`
 }}
 `
