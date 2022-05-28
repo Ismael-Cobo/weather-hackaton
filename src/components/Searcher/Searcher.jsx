@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import { WeatherContext } from "../../App"
 import { useForm } from "../../hooks/useForm"
 import { Input, InputContainer, Svg } from "./searcherStyles"
 
@@ -8,11 +10,13 @@ export const Searcher = () => {
     query: ''
   })
 
+  const { getWeather } = useContext(WeatherContext)
+
   const { query } = formValues
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(query)
+    getWeather(query)
   }
 
   return (
