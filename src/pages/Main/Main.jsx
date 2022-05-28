@@ -44,7 +44,7 @@ export const Main = () => {
         }
       </Section>
 
-      <Section id="sieteDias">
+      <Section id="tresDias">
         <SevenDays />
       </Section>
     </ContainerScroll>
