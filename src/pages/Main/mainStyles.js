@@ -22,7 +22,7 @@ width: 100%;
 height: 100%;
 scroll-snap-align: start;
 &:nth-of-type(3) {
-  background-color: green;
+  background-color: bisque;
 }
 ${props => {
   const error = props.error ? 'assets/bg/sunnyLate.jpg' : ''
