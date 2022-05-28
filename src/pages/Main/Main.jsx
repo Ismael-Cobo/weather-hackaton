@@ -12,7 +12,6 @@ export const Main = () => {
 
   const { error, loading, data } = useContext(WeatherContext)
 
-
   if (error) {
     return (
       <SectionError>
@@ -51,7 +50,12 @@ export const Main = () => {
       </Section>
 
       <Section id="tresDias">
-        <SevenDays />
+        {
+          loading
+            ? 'loading'
+            : <SevenDays weather={data.forecast} />
+        }
+
       </Section>
     </ContainerScroll>
   )
