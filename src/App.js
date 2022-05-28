@@ -21,17 +21,15 @@ function App() {
 
   const [state, dispatch] = useReducer(weatherReducer, initialState)
 
-  const getWeather = async() => {
+
+  const getWeather = async(city='Barcelona') => {
     dispatch({type: types.START_LOADING})
 
     try {
-      const res = await fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=Barcelona&days=4', options)
+      const res = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=4`, options)
       const data = await res.json()
-
-      const resFeelsLike = await fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=Barcelona&days=4', options)
-      const dataFeelsLike = await resFeelsLike.json()
-      
-      const finalData = {data, feelsLike: dataFeelsLike.current.feelslike_c}
+           
+      const finalData = {data}
     
       dispatch({type: types.ADD_QUERY, payload: weatherDataAdapter(finalData)})
       dispatch({type: types.DELETE_ERROR})
@@ -50,6 +48,7 @@ function App() {
   }, [])
 
   
+  
   return (
     <WeatherContext.Provider value={
         {
@@ -61,7 +60,7 @@ function App() {
     >
       <AppWrapper>
         <Card>
-          <HeaderWapper>
+          <HeaderWapper >
             <Navbar />
           </HeaderWapper>
           <MainWrapper>
