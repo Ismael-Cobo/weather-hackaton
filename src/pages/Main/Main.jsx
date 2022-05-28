@@ -12,6 +12,7 @@ export const Main = () => {
 
   const { error, loading, data } = useContext(WeatherContext)
 
+
   if (error) {
     return (
       <SectionError>
@@ -29,6 +30,7 @@ export const Main = () => {
             : <Today
               weather={data.forecast[0]}
               location={data.name}
+              country={data.country}
               feelsLike={data.feelsLike}
             />
 
@@ -39,7 +41,11 @@ export const Main = () => {
         {
           loading
             ? 'loading'
-            : <Today weather={data.forecast[1]} location={data.name} />
+            : <Today
+              weather={data.forecast[1]}
+              location={data.name}
+              country={data.country}
+            />
 
         }
       </Section>

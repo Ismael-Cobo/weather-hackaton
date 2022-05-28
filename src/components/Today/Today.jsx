@@ -5,7 +5,7 @@ import { AllWrap, DiaNoche, Fecha, Section, Temperatura, TemperaturaSign, Temper
 import { formatDate, getDateFormated, getHourFormated, getHourFormatedWithTime } from "../../helpers/formatDate"
 import { separarFecha } from "../../helpers/changeHours"
 
-export const Today = ({ weather, location, feelsLike }) => {
+export const Today = ({ weather, location, feelsLike, country }) => {
 
   const { date, day, hour } = weather
   const { avgtemp_c, condition } = day
@@ -16,7 +16,7 @@ export const Today = ({ weather, location, feelsLike }) => {
     <AllWrap avgtemp_c={avgtemp_c}>
 
       <div>
-        <Title>{location}</Title>
+        <Title>{location}, {country}</Title>
         <Section>
           <Wrap>
             <Fecha>{formatDate(date)}, {getDateFormated()}</Fecha>
