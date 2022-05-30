@@ -17,7 +17,7 @@ border-radius: 10px;
 `
 
 export const HeaderWapper = styled.nav`
-background-color: bisque;
+background-color: #DBF9F0;
 height: 100px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
