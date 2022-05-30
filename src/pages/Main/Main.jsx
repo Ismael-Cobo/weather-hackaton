@@ -12,6 +12,7 @@ export const Main = () => {
 
   const { error, loading, data } = useContext(WeatherContext)
 
+
   if (error) {
     return (
       <SectionError>
