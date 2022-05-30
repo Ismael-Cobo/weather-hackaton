@@ -3,14 +3,19 @@ import { SixHoursWeather } from "../SixHoursWeather/SixHoursWeather"
 import { AllWrap, DiaNoche, Fecha, Section, Temperatura, TemperaturaSign, TemperaturaWrap, Title, Wrap } from "./todayStyles"
 
 import { formatDate, getDateFormated, getHourFormated, getHourFormatedWithTime } from "../../helpers/formatDate"
-import { separarFecha } from "../../helpers/changeHours"
+import { separarFecha, separarFechaText } from "../../helpers/changeHours"
+import { chartDataAdapter } from "../../adapter/chartDataAdapter"
+import { LineChart } from "../Chart/LineChart"
+
 
 export const Today = ({ weather, location, feelsLike, country }) => {
 
   const { date, day, hour } = weather
-  const { avgtemp_c, condition } = day
+  const { avgtemp_c, condition, maxtemp_c } = day
   const { text, icon } = condition
-  const iconsFooterNumber = separarFecha(getHourFormated())
+  const hoursOfDay = separarFecha(getHourFormated())
+  const dataChart = chartDataAdapter(hour, hoursOfDay)
+
 
   return (
     <AllWrap avgtemp_c={avgtemp_c}>
@@ -36,8 +41,11 @@ export const Today = ({ weather, location, feelsLike, country }) => {
         </Section>
       </div>
       <Section>
+        <LineChart hours={separarFechaText(hoursOfDay[0])} tempC={dataChart} max_avgc={Math.round(maxtemp_c) + 5} />
+      </Section>
+      <Section>
         {
-          iconsFooterNumber.map((iconInfo, index) => {
+          hoursOfDay.map((iconInfo, index) => {
             const { condition, time } = hour[iconInfo]
             return <SixHoursWeather key={index} icon={condition.icon} time={getHourFormatedWithTime(time)} />
           })
