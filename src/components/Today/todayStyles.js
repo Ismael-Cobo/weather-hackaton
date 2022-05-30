@@ -9,7 +9,7 @@ color: white;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-justify-content: space-around;
+justify-content: space-between;
 ${props => {
   const image = props.avgtemp_c < 10 ? 'assets/bg/cold3.jpg' : props.avgtemp_c > 10 && props.avgtemp_c < 25 ? 'assets/bg/sunny.png' : 'assets/bg/warm.jpg'
   return `background-image:url(${image});`
@@ -24,6 +24,7 @@ margin-bottom: 0;
 export const Section = styled.section`
 display: flex;
 justify-content: space-around;
+margin-bottom: 25px;
 `
 
 export const Wrap = styled.div`
