@@ -47,21 +47,22 @@ export const LineChart = ({ hours, tempC, max_avgc }) => {
   const data = useMemo(function () {
 
     return {
+
+      labels: hours,
       datasets: [
         {
           data: tempC,
-          tension: 0.3,
           borderColor: "rgb(75, 192, 192)",
           pointRadius: 6,
           backgroundColor: "rgba(75, 192, 192, 0.3)",
           color: 'white'
         },
       ],
-      labels: hours
     }
 
-  }, [hours, tempC])
+  }, [])
 
+  console.log(data)
 
   return <Line data={data} options={options} />
 }
