@@ -60,7 +60,7 @@ export const LineChart = ({ hours, tempC, max_avgc }) => {
       labels: hours
     }
 
-  }, [hours, tempC, max_avgc])
+  }, [hours, tempC])
 
 
   return <Line data={data} options={options} />
