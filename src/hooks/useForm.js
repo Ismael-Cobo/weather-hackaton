@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-//Fijate en las props
+
 export const useForm = ( initialState = {} ) => {
     
     const [values, setvalues] = useState(initialState)
