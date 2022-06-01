@@ -60,9 +60,7 @@ export const LineChart = ({ hours, tempC, max_avgc }) => {
       ],
     }
 
-  }, [])
-
-  console.log(data)
+  }, [hours, tempC])
 
   return <Line data={data} options={options} />
 }
