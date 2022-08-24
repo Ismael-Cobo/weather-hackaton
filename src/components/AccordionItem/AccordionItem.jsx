@@ -62,7 +62,7 @@ export const AccordionItem = ({ data, active, onClick, i }) => {
         <Section style={{ marginTop: '10px' }}>
           {
             iconsFooterNumber.map((iconInfo, index) => {
-              const { condition, time } = hour[iconInfo]
+              const { condition, time } = hour[Number(iconInfo)]
               return <SixHoursWeather key={index} icon={condition.icon} time={getHourFormatedWithTime(time)} />
             })
           }

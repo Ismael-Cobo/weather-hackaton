@@ -28,7 +28,6 @@ function App() {
     try {
       const res = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=4`, options)
       const data = await res.json()
-           
       const finalData = {data}
     
       dispatch({type: types.ADD_QUERY, payload: weatherDataAdapter(finalData)})

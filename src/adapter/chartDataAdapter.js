@@ -1,11 +1,10 @@
 
 
 export const chartDataAdapter = (data, hours) => {
-  let dataAdapted = [] 
-  
-  
+  let dataAdapted = []
   for (let i = 0; i < hours.length; i++) {
-    const { temp_c } = data[hours[i]]
+    const { temp_c } = data[Number(hours[i])]
+    
     dataAdapted.push(temp_c)
   }
 

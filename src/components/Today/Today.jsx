@@ -16,7 +16,6 @@ export const Today = ({ weather, location, feelsLike, country }) => {
   const hoursOfDay = separarFecha(getHourFormated())
   const dataChart = chartDataAdapter(hour, hoursOfDay)
 
-
   return (
     <AllWrap avgtemp_c={avgtemp_c}>
 
@@ -46,7 +45,7 @@ export const Today = ({ weather, location, feelsLike, country }) => {
       <Section>
         {
           hoursOfDay.map((iconInfo, index) => {
-            const { condition, time } = hour[iconInfo]
+            const { condition, time } = hour[Number(iconInfo)]
             return <SixHoursWeather key={index} icon={condition.icon} time={getHourFormatedWithTime(time)} />
           })
         }
