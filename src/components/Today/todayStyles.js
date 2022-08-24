@@ -17,14 +17,15 @@ ${props => {
 `
 
 export const Title = styled.h1`
-text-align: center;
-margin-bottom: 0;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.3rem;
 `
 
 export const Section = styled.section`
-display: flex;
-justify-content: space-around;
-margin-bottom: 25px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
 `
 
 export const Wrap = styled.div`
